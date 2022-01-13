@@ -100,3 +100,51 @@ tagTd.forEach(item => {
 
 })
 */
+/* 
+let moneyBefore = document.querySelector('#money-before');
+let moneyAfter = document.querySelector('#money-after');
+let money = document.querySelector('#money');
+let interest = document.querySelector('#interest');
+let year = document.querySelector('.year');
+
+
+interest.oninput = year.onchange = money.oninput = () => {
+   moneyBefore.textContent = money.value;
+   if (money.value.length > 6) {
+      let m;
+      m = money.value.substring(0, 6);
+      money.value = m;
+   }
+
+   let int = interest.value * 0.01;
+
+   let result = Math.round(money.value * (1 + int) ** year.value);
+
+   moneyAfter.textContent = result;
+
+   let height = result / money.value * 100;
+   document.querySelector('#green').style.height = height + 'px';
+
+}
+ */
+/* 
+money.addEventListener('keydown', (e) => {
+   if (!isNaN(parseInt(e.key)) || e.key == "Backspace" || e.key == 'ArrowLeft' || e.key == 'ArrowRight') {
+   } else {
+      e.preventDefault();
+   }
+})
+
+interest.addEventListener('keydown', (e) => {
+   if (interest.value.length > 1) {
+      let int;
+      int = interest.value.substring(0, 1);
+      interest.value = int;
+   }
+
+   if (!isNaN(parseInt(e.key)) || e.key == "Backspace" || e.key == 'ArrowLeft' || e.key == 'ArrowRight') {
+   } else {
+      e.preventDefault();
+   }
+
+}) */
