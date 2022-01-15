@@ -56,21 +56,23 @@ table.onclick = (e) => {
 } */
 
 //DZ
-/* 
+
 const tagTd = document.querySelectorAll('td');
 
 tagTd.forEach(item => {
 
    item.onfocus = () => {
+
       let bg = item.style.backgroundColor;
       item.style.backgroundColor = 'white';
 
       let textArea = document.createElement('textarea');
       textArea.style.width = 200 + 'px';
       textArea.style.height = 200 + 'px';
+
       let textOld = item.textContent;
-      textArea.value = item.textContent;
-      item.textContent = '';
+      textArea.value = item.innerHTML;
+      item.innerHTML = '';
       item.appendChild(textArea);
       textArea.focus();
 
@@ -82,13 +84,13 @@ tagTd.forEach(item => {
       btnCancel.textContent = 'cancel';
       item.append(btnCancel);
 
-      btnSave.onclick = () => {
-         item.textContent = textArea.value;
+      btnSave.onfocus = () => {
+         item.innerHTML = textArea.value;
          item.style.backgroundColor = bg;
          textArea.remove();
          btnSave.remove();
-
       }
+
       btnCancel.onclick = () => {
          item.textContent = textOld;
          item.style.backgroundColor = bg;
@@ -97,10 +99,10 @@ tagTd.forEach(item => {
          btnSave.remove();
       }
    }
-
 })
-*/
-/* 
+
+
+/*
 let moneyBefore = document.querySelector('#money-before');
 let moneyAfter = document.querySelector('#money-after');
 let money = document.querySelector('#money');
@@ -114,10 +116,17 @@ interest.oninput = year.onchange = money.oninput = () => {
       let m;
       m = money.value.substring(0, 6);
       money.value = m;
+   } else if (money.value < 0) {
+      money.value = 0;
+   }
+
+   if (interest.value > 10) {
+      interest.value = 10;
+   } else if (interest.value < 0) {
+      interest.value = 0;
    }
 
    let int = interest.value * 0.01;
-
    let result = Math.round(money.value * (1 + int) ** year.value);
 
    moneyAfter.textContent = result;
@@ -126,7 +135,8 @@ interest.oninput = year.onchange = money.oninput = () => {
    document.querySelector('#green').style.height = height + 'px';
 
 }
- */
+*/
+
 /* 
 money.addEventListener('keydown', (e) => {
    if (!isNaN(parseInt(e.key)) || e.key == "Backspace" || e.key == 'ArrowLeft' || e.key == 'ArrowRight') {
